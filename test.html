@@ -5,188 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Consultorio odontológico integral con enfoque estético y humano. Reservá tu turno y transformá tu sonrisa."
+      content="Odontología integral para toda la familia con un enfoque cálido, profesional y cercano."
     />
-    <title>Test | Formato base</title>
+    <title>Test | Hero formato portada</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --text: #f8fbff;
+        --muted: rgba(248, 251, 255, 0.88);
+        --chip-bg: rgba(17, 24, 39, 0.46);
+        --chip-border: rgba(248, 251, 255, 0.26);
+        --wa: #25d366;
+        --wa-hover: #1db857;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: #091327;
+      }
+
+      .hero {
+        min-height: 100vh;
+        padding: clamp(1.2rem, 3vw, 2rem);
+        display: grid;
+        place-items: center;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('./hero.webp') center 32% / cover no-repeat;
+        transform: scale(1.03);
+        z-index: -3;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 40%, rgba(13, 20, 36, 0.34), rgba(8, 12, 24, 0.84)),
+          linear-gradient(180deg, rgba(8, 12, 24, 0.34), rgba(8, 12, 24, 0.9));
+        z-index: -2;
+      }
+
+      .hero-content {
+        max-width: min(980px, 92vw);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5.5vw, 4.9rem);
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+      }
+
+      .subtitle {
+        margin: 1.2rem auto 0;
+        max-width: 24ch;
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .chips {
+        margin-top: 1.5rem;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+
+      .chips li {
+        border: 1px solid var(--chip-border);
+        background: var(--chip-bg);
+        padding: 0.55rem 0.95rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+      }
+
+      .cta-note {
+        margin-top: 1.45rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .floating {
+        position: fixed;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 12px 24px rgba(2, 9, 20, 0.35);
+      }
+
+      .floating-help {
+        right: 20px;
+        bottom: 20px;
+        background: var(--wa);
+        color: #ffffff;
+        transition: background-color 0.2s ease;
+      }
+
+      .floating-help:hover {
+        background: var(--wa-hover);
+      }
+
+      .floating-help svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      @media (max-width: 640px) {
+        .floating {
+          width: 62px;
+          height: 62px;
+        }
+
+        .chips li {
+          font-size: 0.88rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="topbar">
-      <a class="brand" href="#inicio">
-        <span class="brand-mark">SL</span>
-        <span>
-          <strong>Dra. Silvana Lousto</strong>
-          <small>Odontología integral & estética dental</small>
-        </span>
-      </a>
-      <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#doctora">La Doctora</a>
-        <a href="#testimonios">Resultados</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <a class="btn btn-outline" href="https://www.instagram.com/od.silvanalousto/" target="_blank" rel="noopener noreferrer">Instagram</a>
-    </header>
+    <main class="hero">
+      <div class="hero-content">
+        <h1>Odontología integral para cuidar tu sonrisa en cada etapa</h1>
+        <p class="subtitle">
+          Combinamos atención profesional, seguimiento cercano y un enfoque cálido para que niñas,
+          niños y adultos se atiendan con confianza.
+        </p>
 
-    <main id="inicio">
-      <section class="hero">
-        <div class="hero-content">
-          <p class="eyebrow">Clínica boutique de odontología estética</p>
-          <h1>Odontología estética, rehabilitación oral y una atención cercana para cuidar tu sonrisa.</h1>
-          <p>
-            Somos el consultorio de la Dra. Silvana Lousto (@od.silvanalousto en Instagram).
-            Combinamos salud bucal, diseño de sonrisa y seguimiento personalizado para tratamientos
-            claros, cómodos y adaptados a cada paciente.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacto">Reservar turno</a>
-            <a class="btn btn-light" href="#servicios">Explorar servicios</a>
-          </div>
-          <ul class="hero-badges">
-            <li>✔ Diagnóstico digital</li>
-            <li>✔ Planes personalizados</li>
-            <li>✔ Seguimiento post tratamiento</li>
-          </ul>
-        </div>
+        <ul class="chips" aria-label="Secciones principales">
+          <li>La clínica</li>
+          <li>Tratamientos</li>
+          <li>Niños</li>
+          <li>FAQs</li>
+          <li>Turnos</li>
+        </ul>
 
-        <div class="hero-visual" aria-label="Imagen destacada del consultorio"></div>
-      </section>
-
-      <section id="servicios" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Tratamientos</p>
-          <h2>Servicios destacados del consultorio</h2>
-        </div>
-        <div class="grid cards">
-          <article class="card">
-            <h3>Estética Dental</h3>
-            <p>Diseño de sonrisa, blanqueamiento y carillas para resultados naturales y armónicos.</p>
-          </article>
-          <article class="card">
-            <h3>Implantes</h3>
-            <p>Reposición de piezas dentales con funcionalidad y estética de larga duración.</p>
-          </article>
-          <article class="card">
-            <h3>Ortodoncia</h3>
-            <p>Alineación dental con enfoque en salud, estabilidad y una sonrisa equilibrada.</p>
-          </article>
-          <article class="card">
-            <h3>Endodoncia</h3>
-            <p>Tratamientos de conducto con técnicas modernas para preservar piezas dentales.</p>
-          </article>
-          <article class="card">
-            <h3>Odontología General</h3>
-            <p>Control preventivo, limpiezas y restauraciones para mantener una salud bucal completa.</p>
-          </article>
-          <article class="card">
-            <h3>Rehabilitación Oral</h3>
-            <p>Planes integrales para recuperar función masticatoria y mejorar tu calidad de vida.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="doctora" class="section section-soft">
-        <div class="about">
-          <div>
-            <p class="eyebrow">Sobre mí</p>
-            <h2>Dra. Silvana Lousto</h2>
-            <p>
-              Soy odontóloga con enfoque en estética dental y rehabilitación integral. Mi objetivo es
-              combinar precisión clínica, innovación y cercanía para que cada paciente se sienta
-              acompañado desde la primera consulta.
-            </p>
-            <p>
-              Trabajo con protocolos personalizados, explicando cada paso del tratamiento para que tomes
-              decisiones informadas y logres resultados funcionales, saludables y estéticos.
-            </p>
-          </div>
-          <aside class="info-box">
-            <h3>¿Por qué elegirnos?</h3>
-            <ul>
-              <li>Atención enfocada en cada paciente.</li>
-              <li>Equipamiento y materiales de calidad.</li>
-              <li>Seguimiento cercano post tratamiento.</li>
-              <li>Turnos y planes adaptados a tu rutina.</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section id="testimonios" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Pacientes felices</p>
-          <h2>Historias que nos inspiran</h2>
-        </div>
-        <div class="grid testimonials">
-          <blockquote>
-            “Excelente atención. Me sentí escuchada desde el primer día y el resultado superó mis expectativas.”
-            <cite>— María C.</cite>
-          </blockquote>
-          <blockquote>
-            “Profesionalismo, calidez y mucha dedicación. Recomiendo el consultorio al 100%.”
-            <cite>— Javier R.</cite>
-          </blockquote>
-          <blockquote>
-            “Volví a sonreír con confianza. El tratamiento fue claro, cómodo y muy cuidado.”
-            <cite>— Lucía P.</cite>
-          </blockquote>
-        </div>
-      </section>
-
-      <section class="section section-soft">
-        <div class="section-heading">
-          <p class="eyebrow">Instagram</p>
-          <h2>Lo que compartimos en @od.silvanalousto</h2>
-        </div>
-        <div class="grid cards">
-          <article class="card">
-            <h3>Casos clínicos</h3>
-            <p>Antes y después de tratamientos estéticos y rehabilitaciones explicados de forma simple.</p>
-          </article>
-          <article class="card">
-            <h3>Tips de cuidado</h3>
-            <p>Recomendaciones prácticas para mantener una sonrisa sana entre controles odontológicos.</p>
-          </article>
-          <article class="card">
-            <h3>Novedades del consultorio</h3>
-            <p>Información sobre agenda, tratamientos destacados y contenido educativo para pacientes.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="contacto" class="section cta">
-        <div>
-          <p class="eyebrow">Contacto</p>
-          <h2>Reservá tu turno hoy</h2>
-          <p>
-            Seguinos en Instagram para ver casos reales, novedades del consultorio y consejos de cuidado bucal.
-            Si querés reservar, escribinos por WhatsApp y te respondemos a la brevedad.
-          </p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="https://wa.me/5493462557923" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a>
-          <a class="btn btn-light" href="https://www.instagram.com/od.silvanalousto/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
-        </div>
-      </section>
+        <p class="cta-note">Reservá tu consulta desde la burbuja de WhatsApp.</p>
+      </div>
     </main>
 
-    <footer>
-      <p>© <span id="year"></span> Dra. Silvana Lousto · Todos los derechos reservados.</p>
-    </footer>
-
-
     <a
-      class="whatsapp-bubble"
+      class="floating floating-help"
       href="https://wa.me/5493462557923"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Abrir WhatsApp"
+      aria-label="Reservar consulta por WhatsApp"
+      title="Reservar consulta por WhatsApp"
     >
       <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
         <path
@@ -196,7 +188,5 @@
         />
       </svg>
     </a>
-
-    <script src="script.js"></script>
   </body>
 </html>
