@@ -1,21 +1,20 @@
-name: Auto Merge
+name: Auto-merge Codex PRs
 
 on:
-  pull_request_target:
-    types: [opened, reopened, synchronize, labeled]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  enable-automerge:
-    if: contains(github.event.pull_request.labels.*.name, 'automerge')
+  automerge:
     runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'codex/')
     steps:
-      - name: Habilitar auto-merge para PRs con etiqueta "automerge"
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          pull-request-number: ${{ github.event.pull_request.number }}
-          merge-method: squash
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Enable auto-merge (squash)
+        run: gh pr merge "$PR_URL" --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
